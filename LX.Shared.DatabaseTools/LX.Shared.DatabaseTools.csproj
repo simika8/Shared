@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <DefineConstants>$(DefineConstants);EXTERN</DefineConstants>
+  </PropertyGroup>
+
+  <Import Project="..\VersionSpecificSymbols.Common.New.prop" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\LX.Shared.Database.WinLX\LX.Shared.Database.WinLX.csproj" />
+  </ItemGroup>
+
+</Project>

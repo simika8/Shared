@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>7ccbb961-05dc-4f91-9420-b1e8bba89b8f</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>LX.Common.Extensions</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ArrayExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CharExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CompressionExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DateTimeExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataTableExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HashExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObjectExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StreamExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StringExt.cs" />
+  </ItemGroup>
+</Project>

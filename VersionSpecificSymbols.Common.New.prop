@@ -1,0 +1,31 @@
+<!--
+// dotnet verziók
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <CustomConstants Condition="$(TargetFramework) == 'net48'">$(CustomConstants);NETFX_48;NETFX_472;NETFX_471;NETFX_47;NETFX_462;NETFX_461;NETFX_46;NETFX_452;NETFX_451;NETFX_45;NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+
+    <CustomConstants Condition="$(TargetFramework) == 'net472'">$(CustomConstants);NETFX_472;NETFX_471;NETFX_47;NETFX_462;NETFX_461;NETFX_46;NETFX_452;NETFX_451;NETFX_45;NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+    <CustomConstants Condition="$(TargetFramework) == 'net471' Or $(TargetFramework) == 'netstandard2.1'">$(CustomConstants);NETFX_471;NETFX_47;NETFX_462;NETFX_461;NETFX_46;NETFX_452;NETFX_451;NETFX_45;NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+    <CustomConstants Condition="$(TargetFramework) == 'net47'">$(CustomConstants);NETFX_47;NETFX_462;NETFX_461;NETFX_46;NETFX_452;NETFX_451;NETFX_45;NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+
+    <CustomConstants Condition="$(TargetFramework) == 'net462'">$(CustomConstants);NETFX_462;NETFX_461;NETFX_46;NETFX_452;NETFX_451;NETFX_45;NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+    <CustomConstants Condition="$(TargetFramework) == 'net461' Or $(TargetFramework) == 'netstandard2.0' Or $(TargetFramework) == 'netcoreapp3.0'">$(CustomConstants);NETFX_461;NETFX_46;NETFX_452;NETFX_451;NETFX_45;NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+    <CustomConstants Condition="$(TargetFramework) == 'net46'">$(CustomConstants);NETFX_46;NETFX_452;NETFX_451;NETFX_45;NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+
+    <CustomConstants Condition="$(TargetFramework) == 'net452'">$(CustomConstants);NETFX_452;NETFX_451;NETFX_45;NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+    <CustomConstants Condition="$(TargetFramework) == 'net451'">$(CustomConstants);NETFX_451;NETFX_45;NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+    <CustomConstants Condition="$(TargetFramework) == 'net45'">$(CustomConstants);NETFX_45;NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+
+    <CustomConstants Condition="$(TargetFramework) == 'net40'">$(CustomConstants);NETFX_40;NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+
+    <CustomConstants Condition="$(TargetFramework) == 'net35'">$(CustomConstants);NETFX_35;NETFX_30;NETFX_20</CustomConstants>
+    <CustomConstants Condition="$(TargetFramework) == 'net30'">$(CustomConstants);NETFX_30;NETFX_20</CustomConstants>
+    <CustomConstants Condition="$(TargetFramework) == 'net20'">$(CustomConstants);NETFX_20</CustomConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);$(CustomConstants)</DefineConstants>
+  </PropertyGroup>
+</Project>

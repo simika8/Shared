@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>aac89f35-cb20-44b9-a079-3f811da6f68c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>LX.Common</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Cryptography.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventHandlers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Http.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IniReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LXIniFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RandomPassword.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThreadTools.cs" />
+  </ItemGroup>
+</Project>

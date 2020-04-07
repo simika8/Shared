@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <DefineConstants>$(DefineConstants);EXTERN</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LX.Shared.Database.WinLX\LX.Shared.Database.WinLX.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\VersionSpecificSymbols.Common.New.prop" />
+
+</Project>

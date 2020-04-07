@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <DefineConstants>$(DefineConstants);EXTERN</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LX.Shared.Common\LX.Common.csproj" />
+    <ProjectReference Include="..\LX.Shared.DatabaseTools\LX.Shared.DatabaseTools.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Configuration.Install" />
+  </ItemGroup>
+
+  <Import Project="..\VersionSpecificSymbols.Common.New.prop" />
+
+</Project>

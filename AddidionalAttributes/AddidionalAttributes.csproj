@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.6;net452</TargetFrameworks>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition=" '$(TargetFramework)' == 'net452' ">
+    <Exec Command="mkdir &quot;$(ProjectDir)lib\&quot; 2&gt; NUL&#xD;&#xA;copy /Y &quot;$(TargetDir)$(AssemblyName).dll&quot; &quot;$(ProjectDir)lib\$(AssemblyName).dll&quot;" />
+  </Target>
+
+</Project>
