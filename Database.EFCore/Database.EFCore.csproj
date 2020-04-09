@@ -15,9 +15,4 @@
     <PackageReference Include="FirebirdSql.EntityFrameworkCore.Firebird" Version="7.5.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\LX.Shared.Database.WinLX\LX.Shared.Database.WinLX.csproj" />
-    <ProjectReference Include="..\LX.Shared.Database\LX.Shared.Database.csproj" />
-  </ItemGroup>
-
 </Project>
