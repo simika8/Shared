@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace Scheduler
 {
-	public class BaseHostedService : IHostedService, IDisposable
+	public abstract class BaseHostedService : IHostedService, IDisposable
 	{
 		private Timer _timer = null!;
 		protected IServiceProvider ServiceProvider { get; set; }
@@ -34,10 +34,7 @@ namespace Scheduler
 		/// Ez hajtódik végre ciklikusan
 		/// </summary>
 		/// <param name="state"></param>
-		protected virtual void Execute(object state)
-		{
-
-		}
+		protected abstract void Execute(object state);
 
 		private void DoWork(object state)
 		{

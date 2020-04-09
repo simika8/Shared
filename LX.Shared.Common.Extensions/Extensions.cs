@@ -231,6 +231,8 @@ namespace LX.Common.Extensions
 			return bytes.XDeserialize<T>();
 		}
 
+		
+
 		/// <summary>
 		/// Objektum XML fileba szerializálása
 		/// </summary>
@@ -240,6 +242,63 @@ namespace LX.Common.Extensions
 		/// <param name="xmlWriterSettings"></param>
 		public static void XSerializeToFile<T>(this T self, string fileName, XmlWriterSettings xmlWriterSettings = null)
 		{
+			using var fs = new FileStream(fileName, FileMode.Create);
+			self.XSerializeToStream(fs, xmlWriterSettings);
+		}
+
+		/// <summary>
+		/// A beadott objektum adatait exportálja XML formába sortörésekkel, behúzásokkal
+		/// </summary>
+		public static void ExportToXMLFile(this object o, string fileName)
+		{
+			XmlWriterSettings settings = new XmlWriterSettings()
+			{
+				Indent = true,
+				IndentChars = "\t",
+				Encoding = Encoding.UTF8,
+			};
+
+			o.XSerializeToFile(fileName, settings);
+		}
+		
+		/// <summary>
+				/// Objektum XML szerializálása byte tömbbe
+				/// </summary>
+				/// <typeparam name="T"></typeparam>
+				/// <param name="self"></param>
+				/// <returns></returns>
+		public static byte[] XSerialize<T>(this T self, XmlWriterSettings xmlWriterSettings = null)
+		{
+			using var ms = new MemoryStream();
+
+			self.XSerializeToStream(ms, xmlWriterSettings);
+			return ms.ToArray();
+		}
+
+		/// <summary>
+		/// A beadott objektum adatait exportálja XML formába sortörésekkel, behúzásokkal
+		/// </summary>
+		public static byte[] ExportToXML(this object o)
+		{
+			XmlWriterSettings settings = new XmlWriterSettings()
+			{
+				Indent = true,
+				IndentChars = "\t",
+				Encoding = Encoding.UTF8,
+			};
+
+			return o.XSerialize(settings);
+		}
+
+
+
+		
+
+		/// <summary>
+		/// Objektum XML szerializálása Streambe
+		/// </summary>
+		public static void XSerializeToStream<T>(this T self, Stream stream, XmlWriterSettings xmlWriterSettings)
+		{
 			var xmlSerializer = new XmlSerializer(self.GetType());
 
 			if (xmlWriterSettings == null)
@@ -247,34 +306,17 @@ namespace LX.Common.Extensions
 				xmlWriterSettings = new XmlWriterSettings
 				{
 					Indent = false,
-					Encoding = Encoding.UTF8
+					Encoding = Encoding.UTF8,
 				};
 			}
 
-			using (var xmlWriter = XmlWriter.Create(fileName, xmlWriterSettings))
-			{
-				xmlSerializer.Serialize(xmlWriter, self);
-				xmlWriter.Flush();
-			}
+			using var xmlWriter = XmlWriter.Create(stream, xmlWriterSettings);
+			xmlSerializer.Serialize(xmlWriter, self);
+			xmlWriter.Flush();
+
 		}
 
-		/// <summary>
-		/// Típus XML szerializálása byte tömbbe
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="self"></param>
-		/// <returns></returns>
-		public static byte[] XSerialize<T>(this T self)
-		{
-			var xmlSerializer = new XmlSerializer(self.GetType());
-			using (var ms = new MemoryStream())
-			using (var xw = XmlWriter.Create(ms, new XmlWriterSettings { Indent = false, }))
-			{
-				xmlSerializer.Serialize(xw, self);
-				xw.Flush();
-				return ms.ToArray();
-			}
-		}
+
 
 		/// <summary>
 		/// Típus bináris szerializálása byte tömbbe
