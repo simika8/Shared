@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 
-namespace LX.Common
+namespace Scheduler
 {
 	public class BaseHostedService : IHostedService, IDisposable
 	{
